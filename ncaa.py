@@ -48,7 +48,7 @@ def download(start = None, end = None):
 			try:
 				for i in range(2):
 					scores[i] = int(game.find_all(class_ = "final score")[i].string)
-					teams[i] = game.find_all(class_ = "team")[i].a.string
+					teams[i] = game.find_all(class_ = "team")[i].a.string.encode('ASCII', 'ignore')
 			except TypeError:
 				print "No points listed for this game."
 				continue
